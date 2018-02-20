@@ -19,18 +19,21 @@
  */
 #include <stdio.h>
 #include "hyperfp/debug.h"
+#include "hyperfp/lib.h"
 #include "hyperfp/msr.h"
+#include "hyperfp/readtest.h"
 
 #ifndef DEBUG
 #define DEBUG 0
 #endif
 
 static int (*const kvm_msr_readable[])() = {
-//        [MSR_KVM_MAGIC]             = test_kvm_magic,
+        [0]             = test_msr_efer,
+        [1]             = test_msr_fs_base,
 };
 
-static const int kvm_msr_read_max = 1;
-//        ARRAY_SIZE(kvm_msr_readable);
+static const int kvm_msr_read_max =
+        ARRAY_SIZE(kvm_msr_readable);
 
 static int (*const kvm_msr_writable[])() = {
 //        [MSR_IA32_MCG_STATUS]	= test_msr_ia32_mcg_status,
@@ -44,12 +47,18 @@ int main()
 
         DPRINTF("project kick-off!\n");
 	int i=0;
+	int readable=0;
 
 	DPRINTF("===Starting MSR Read Test!===\n");
 	for(i=0;i<kvm_msr_read_max;i++)
 	{
 		//Read Test MSR i;
-		DPRINTF("MSR xxx is readable\n");
+		readable=kvm_msr_readable[i]();
+		if(readable == 1)
+			DPRINTF("MSR xxx is readable\n");
+		else
+			DPRINTF("MSR xxx is not readable\n");
+			
 	}
 
 	DPRINTF("===Starting MSR Write Test!===\n");

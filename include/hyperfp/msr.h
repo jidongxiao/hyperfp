@@ -1,6 +1,6 @@
 /*
- * msr.h:  This file defines msr read and write functions.
- * Copyright (c) 2014, Jidong Xiao (jidong.xiao@gmail.com)
+ * msr.h:  This file defines msr registers.
+ * Copyright (c) 2018, Jidong Xiao (jidong.xiao@gmail.com)
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms and conditions of the GNU General Public License,
@@ -21,6 +21,9 @@
 #define __MSR_H
 
 #include <inttypes.h>
+
+#define MSR_EFER		0xc0000080 /* extended feature register */
+#define MSR_FS_BASE		0xc0000100 /* 64bit FS base */
 
 #define MSR_IA32_MCG_STATUS             0x0000017a
 #define MSR_IA32_EBL_CR_POWERON         0x0000002a 
