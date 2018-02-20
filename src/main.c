@@ -1,8 +1,7 @@
 /*
- * This file includes the main function of the hyperprobe project.
+ * This file includes the main function of the hyperfp project.
  * Initial work by:
  *   (c) 2014 Jidong Xiao (jidong.xiao@gmail.com)
- *   (c) 2014 Lei Lu (lulei.wm@gmail.com)
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
