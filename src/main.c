@@ -46,8 +46,18 @@ static int (*const kvm_msr_readable[])() = {
         [15]             = test_msr_platform_info_cpuid_fault_bit,
         [16]             = test_msr_platform_info_cpuid_fault,
 
-        [17]             = test_hv_x64_msr_reset,
-        [18]             = test_hv_x64_msr_time_ref_count
+        [17]             = test_msr_ia32_bbl_cr_ctl,
+        [18]             = test_msr_ia32_bbl_cr_ctl3,
+        [19]             = test_msr_ia32_sysenter_cs,
+        [20]             = test_msr_ia32_sysenter_esp,
+        [21]             = test_msr_ia32_sysenter_eip,
+        [22]             = test_msr_ia32_mcg_cap,
+        [23]             = test_msr_ia32_mcg_status,
+        [24]             = test_msr_ia32_mcg_ctl,
+        [25]             = test_msr_ia32_mcg_ext_ctl,
+
+        [26]             = test_hv_x64_msr_reset,
+        [27]             = test_hv_x64_msr_time_ref_count
 };
 
 static const int kvm_msr_read_max =
@@ -73,9 +83,9 @@ int main()
 		//Read Test MSR i;
 		readable=kvm_msr_readable[i]();
 		if(readable == 1)
-			DPRINTF("MSR xxx is readable\n");
+			DPRINTF(" readable\n");
 		else
-			DPRINTF("MSR xxx is not readable\n");
+			DPRINTF(" not readable\n");
 			
 	}
 

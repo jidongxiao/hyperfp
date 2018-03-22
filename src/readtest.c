@@ -773,6 +773,357 @@ int test_msr_platform_info_cpuid_fault()
 	return 1;
 }
 
+// This function use fork to create a child process. The child process tries to read MSR_IA32_BBL_CR_CTL
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_msr_ia32_bbl_cr_ctl()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(MSR_IA32_BBL_CR_CTL,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: MSR_IA32_BBL_CR_CTL is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
+// This function use fork to create a child process. The child process tries to read MSR_IA32_BBL_CR_CTL3
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_msr_ia32_bbl_cr_ctl3()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(MSR_IA32_BBL_CR_CTL3,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: MSR_IA32_BBL_CR_CTL3 is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
+// This function use fork to create a child process. The child process tries to read MSR_IA32_SYSENTER_CS
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_msr_ia32_sysenter_cs()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(MSR_IA32_SYSENTER_CS,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: MSR_IA32_SYSENTER_CS is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
+// This function use fork to create a child process. The child process tries to read MSR_IA32_SYSENTER_ESP.
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_msr_ia32_sysenter_esp()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(MSR_IA32_SYSENTER_ESP,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: MSR_IA32_SYSENTER_ESP is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
+// This function use fork to create a child process. The child process tries to read MSR_IA32_SYSENTER_EIP.
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_msr_ia32_sysenter_eip()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(MSR_IA32_SYSENTER_EIP,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: MSR_IA32_SYSENTER_EIP is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
+// This function use fork to create a child process. The child process tries to read MSR_IA32_MCG_CAP.
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_msr_ia32_mcg_cap()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(MSR_IA32_MCG_CAP,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: MSR_IA32_MCG_CAP is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
+// This function use fork to create a child process. The child process tries to read MSR_IA32_MCG_STATUS.
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_msr_ia32_mcg_status()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(MSR_IA32_MCG_STATUS,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: MSR_IA32_MCG_STATUS is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
+// This function use fork to create a child process. The child process tries to read MSR_IA32_MCG_CTL
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_msr_ia32_mcg_ctl()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(MSR_IA32_MCG_CTL,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: MSR_IA32_MCG_CTL is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
+// This function use fork to create a child process. The child process tries to read MSR_IA32_MCG_EXT_CTL
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_msr_ia32_mcg_ext_ctl()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(MSR_IA32_MCG_EXT_CTL,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: MSR_IA32_MCG_EXT_CTL is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
 // This function use fork to create a child process. The child process tries to read HV_X64_MSR_TIME_REF_COUNT.
 // If the register exists, it is readable. Otherwise, it is not readable.
 // Return: 1 if readable, 0 if not.
@@ -788,31 +1139,26 @@ int test_hv_x64_msr_time_ref_count()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(HV_X64_MSR_TIME_REF_COUNT,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: HV_X64_MSR_TIME_REF_COUNT is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: HV_X64_MSR_TIME_REF_COUNT is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: HV_X64_MSR_TIME_REF_COUNT is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: HV_X64_MSR_TIME_REF_COUNT is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: HV_X64_MSR_TIME_REF_COUNT is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1;
 }
@@ -832,31 +1178,26 @@ int test_hv_x64_msr_reset()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(HV_X64_MSR_RESET,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: HV_X64_MSR_RESET is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: HV_X64_MSR_RESET is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: HV_X64_MSR_RESET is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: HV_X64_MSR_RESET is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: HV_X64_MSR_RESET is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1;
 }
