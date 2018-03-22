@@ -1475,6 +1475,84 @@ int test_msr_pebs_ld_lat_threshold()
 	return 1;
 }
 
+// This function use fork to create a child process. The child process tries to read MSR_K8_TSEG_ADDR.
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_msr_k8_tseg_addr()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(MSR_K8_TSEG_ADDR,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: MSR_K8_TSEG_ADDR is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
+// This function use fork to create a child process. The child process tries to read MSR_K8_TSEG_MASK.
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_msr_k8_tseg_mask()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(MSR_K8_TSEG_MASK,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: MSR_K8_TSEG_MASK is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
 // This function use fork to create a child process. The child process tries to read HV_X64_MSR_TIME_REF_COUNT.
 // If the register exists, it is readable. Otherwise, it is not readable.
 // Return: 1 if readable, 0 if not.

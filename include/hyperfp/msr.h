@@ -87,6 +87,8 @@
 #define MSR_IA32_PERF_CAPABILITIES      0x00000345
 #define MSR_PEBS_LD_LAT_THRESHOLD       0x000003f6
 
+#define MSR_K8_TSEG_ADDR                0xc0010112
+#define MSR_K8_TSEG_MASK                0xc0010113
 
 #define MSR_IA32_EBL_CR_POWERON         0x0000002a 
 #define MSR_IA32_PERF_STATUS		0x00000198

@@ -66,6 +66,10 @@ extern int test_msr_ia32_ds_area();
 extern int test_msr_ia32_perf_capabilities();
 extern int test_msr_pebs_ld_lat_threshold();
 
+
+extern int test_msr_k8_tseg_addr();
+extern int test_msr_k8_tseg_mask();
+
 extern int test_hv_x64_msr_reset();
 extern int test_hv_x64_msr_time_ref_count();
 
