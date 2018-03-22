@@ -149,6 +149,17 @@
 /* MSR used to read the per-partition time reference counter */
 #define HV_X64_MSR_TIME_REF_COUNT	0x40000020
 
+/* Hyper-V guest crash notification MSR's */
+#define HV_X64_MSR_CRASH_P0                     0x40000100
+#define HV_X64_MSR_CRASH_P1                     0x40000101
+#define HV_X64_MSR_CRASH_P2                     0x40000102
+#define HV_X64_MSR_CRASH_P3                     0x40000103
+#define HV_X64_MSR_CRASH_P4                     0x40000104
+#define HV_X64_MSR_CRASH_CTL                    0x40000105
+#define HV_X64_MSR_CRASH_CTL_NOTIFY             (1ULL << 63)
+#define HV_X64_MSR_CRASH_PARAMS         \
+                (1 + (HV_X64_MSR_CRASH_P4 - HV_X64_MSR_CRASH_P0))
+
 uint64_t rdmsr_on_cpu(uint32_t reg, int cpu);
 void wrmsr_on_cpu(uint32_t reg, int cpu, uint64_t data);
 

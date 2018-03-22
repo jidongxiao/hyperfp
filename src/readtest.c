@@ -1670,3 +1670,317 @@ int test_hv_x64_msr_time_ref_count()
 	return 1;
 }
 
+// This function use fork to create a child process. The child process tries to read HV_X64_MSR_CRASH_P0.
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_hv_x64_msr_crash_p0()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(HV_X64_MSR_CRASH_P0,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: HV_X64_MSR_CRASH_P0 is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
+// This function use fork to create a child process. The child process tries to read HV_X64_MSR_CRASH_P1.
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_hv_x64_msr_crash_p1()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(HV_X64_MSR_CRASH_P1,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: HV_X64_MSR_CRASH_P1 is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
+// This function use fork to create a child process. The child process tries to read HV_X64_MSR_CRASH_P2.
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_hv_x64_msr_crash_p2()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(HV_X64_MSR_CRASH_P2,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: HV_X64_MSR_CRASH_P2 is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
+// This function use fork to create a child process. The child process tries to read HV_X64_MSR_CRASH_P3.
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_hv_x64_msr_crash_p3()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(HV_X64_MSR_CRASH_P3,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: HV_X64_MSR_CRASH_P3 is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
+// This function use fork to create a child process. The child process tries to read HV_X64_MSR_CRASH_P4.
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_hv_x64_msr_crash_p4()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(HV_X64_MSR_CRASH_P4,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: HV_X64_MSR_CRASH_P4 is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
+// This function use fork to create a child process. The child process tries to read HV_X64_MSR_CRASH_CTL.
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_hv_x64_msr_crash_ctl()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(HV_X64_MSR_CRASH_CTL,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: HV_X64_MSR_CRASH_CTL is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
+// This function use fork to create a child process. The child process tries to read HV_X64_MSR_CRASH_CTL_NOTIFY.
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+/* FIXME: Can't compile
+
+int test_hv_x64_msr_crash_ctl_notify()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(HV_X64_MSR_CRASH_CTL_NOTIFY,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: HV_X64_MSR_CRASH_CTL_NOTIFY is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}*/
+
+// This function use fork to create a child process. The child process tries to read HV_X64_MSR_CRASH_PARAMS.
+// If the register exists, it is readable. Otherwise, it is not readable.
+// Return: 1 if readable, 0 if not.
+int test_hv_x64_msr_crash_params()
+{
+	pid_t pid;
+	int status;
+
+	if( (pid=fork()) < 0 )
+	{
+		perror("fail to fork\n");
+	}
+
+	if(pid==0)	//child process
+	{
+		rdmsr_on_cpu(HV_X64_MSR_CRASH_PARAMS,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
+		exit(0);
+	}else		//parent process
+	{
+		wait(&status);
+		DPRINTF("DEBUG: HV_X64_MSR_CRASH_PARAMS is");
+		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
+		{
+			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
+			{
+				return 0;
+			}
+			else
+			{
+				return 1;	//child process exit normally with exit code 0, which means the register is readable.
+			}
+		}else
+		{
+			return 0;	//child process exit abnormally, the register is not readable.
+		}
+	}
+	return 1;
+}
+
