@@ -93,14 +93,26 @@
 #define MSR_IA32_SMM_MONITOR_CTL        0x0000009b
 #define MSR_IA32_SMBASE                 0x0000009e
 
+/* K7 MSRs */
+#define MSR_K7_EVNTSEL0                 0xc0010000
+#define MSR_K7_PERFCTR0                 0xc0010004
+#define MSR_K7_EVNTSEL1                 0xc0010001
+#define MSR_K7_PERFCTR1                 0xc0010005
+#define MSR_K7_EVNTSEL2                 0xc0010002
+#define MSR_K7_PERFCTR2                 0xc0010006
+#define MSR_K7_EVNTSEL3                 0xc0010003
+#define MSR_K7_PERFCTR3                 0xc0010007
+#define MSR_K7_CLK_CTL                  0xc001001b
+#define MSR_K7_HWCR                     0xc0010015
+#define MSR_K7_FID_VID_CTL              0xc0010041
+#define MSR_K7_FID_VID_STATUS           0xc0010042
+
 #define MSR_IA32_EBL_CR_POWERON         0x0000002a 
 #define MSR_IA32_PERF_STATUS		0x00000198
 #define MSR_IA32_MC0_MISC		0x00000403
 #define MSR_VM_HSAVE_PA			0xc0010117
-#define MSR_K7_EVNTSEL0			0xc0010000
 
 #define MSR_IA32_MC0_CTL          	0x00000400	// Clear bit 10 of this register is not allowed until 2.6.34
-#define MSR_K7_HWCR                     0xc0010015	// Writing 0x100 to it is not supported until kernel 2.6.35
 							// Writing 0x8 to it is not supported until kernel 3.4
 #define MSR_EBC_FREQUENCY_ID            0x0000002c	// Not readable until kernel 2.6.37
 #define MSR_IA32_BBL_CR_CTL3            0x0000011e	// Not readable until kernel 2.6.39

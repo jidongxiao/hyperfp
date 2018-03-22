@@ -69,7 +69,12 @@ extern int test_msr_pebs_ld_lat_threshold();
 
 extern int test_msr_k8_tseg_addr();
 extern int test_msr_k8_tseg_mask();
-
+extern int test_msr_k7_evntsel1();
+extern int test_msr_k7_evntsel2();
+extern int test_msr_k7_evntsel3();
+extern int test_msr_k7_perfctr1();
+extern int test_msr_k7_perfctr2();
+extern int test_msr_k7_perfctr3();
 
 extern int test_msr_ia32_smm_monitor_ctl();
 extern int test_msr_ia32_smbase();

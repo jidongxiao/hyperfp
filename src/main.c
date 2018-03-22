@@ -71,22 +71,28 @@ static int (*const kvm_msr_readable[])() = {
 
         [35]             = test_msr_k8_tseg_addr,
         [36]             = test_msr_k8_tseg_mask,
+        [36]             = test_msr_k7_evntsel1,
+        [37]             = test_msr_k7_evntsel2,
+        [38]             = test_msr_k7_evntsel3,
+        [39]             = test_msr_k7_perfctr1,
+        [40]             = test_msr_k7_perfctr2,
+        [41]             = test_msr_k7_perfctr3,
 
-        [37]             = test_msr_ia32_smm_monitor_ctl,
-        [38]             = test_msr_ia32_smbase,
-        [39]             = test_hv_x64_msr_reset,
-        [40]             = test_hv_x64_msr_vp_runtime,
-        [41]             = test_hv_x64_msr_time_ref_count,
-        [42]             = test_hv_x64_msr_tsc_frequency,
-        [43]             = test_hv_x64_msr_apic_frequency,
-        [44]             = test_hv_x64_msr_crash_p0,
-        [45]             = test_hv_x64_msr_crash_p1,
-        [46]             = test_hv_x64_msr_crash_p2,
-        [47]             = test_hv_x64_msr_crash_p3,
-        [48]             = test_hv_x64_msr_crash_p4,
-        [49]             = test_hv_x64_msr_crash_ctl,
+        [42]             = test_msr_ia32_smm_monitor_ctl,
+        [43]             = test_msr_ia32_smbase,
+        [44]             = test_hv_x64_msr_reset,
+        [45]             = test_hv_x64_msr_vp_runtime,
+        [46]             = test_hv_x64_msr_time_ref_count,
+        [47]             = test_hv_x64_msr_tsc_frequency,
+        [48]             = test_hv_x64_msr_apic_frequency,
+        [49]             = test_hv_x64_msr_crash_p0,
+        [50]             = test_hv_x64_msr_crash_p1,
+        [51]             = test_hv_x64_msr_crash_p2,
+        [52]             = test_hv_x64_msr_crash_p3,
+        [53]             = test_hv_x64_msr_crash_p4,
+        [54]             = test_hv_x64_msr_crash_ctl,
 /* FIXME: Can't compile       [46]             = test_hv_x64_msr_crash_ctl_notify, */
-        [50]             = test_hv_x64_msr_crash_params
+        [55]             = test_hv_x64_msr_crash_params
 };
 
 static const int kvm_msr_read_max =
