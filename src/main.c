@@ -62,8 +62,14 @@ static int (*const kvm_msr_readable[])() = {
         [29]             = test_msr_turbo_ratio_limit1,
         [30]             = test_msr_turbo_ratio_limit2,
 
-        [31]             = test_hv_x64_msr_reset,
-        [32]             = test_hv_x64_msr_time_ref_count
+
+        [31]             = test_msr_ia32_pebs_enable,
+        [32]             = test_msr_ia32_ds_area,
+        [33]             = test_msr_ia32_perf_capabilities,
+        [34]             = test_msr_pebs_ld_lat_threshold,
+
+        [35]             = test_hv_x64_msr_reset,
+        [36]             = test_hv_x64_msr_time_ref_count
 };
 
 static const int kvm_msr_read_max =
