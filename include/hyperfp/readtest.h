@@ -81,6 +81,8 @@ extern int test_msr_ia32_feature_control();
 extern int test_msr_ia32_smm_monitor_ctl();
 extern int test_msr_ia32_smbase();
 
+extern int test_msr_ia32_vmx_vmfunc();
+
 extern int test_hv_x64_msr_reset();
 extern int test_hv_x64_msr_vp_runtime();
 extern int test_hv_x64_msr_time_ref_count();
