@@ -75,14 +75,16 @@ static int (*const kvm_msr_readable[])() = {
         [37]             = test_hv_x64_msr_reset,
         [38]             = test_hv_x64_msr_vp_runtime,
         [39]             = test_hv_x64_msr_time_ref_count,
-        [40]             = test_hv_x64_msr_crash_p0,
-        [41]             = test_hv_x64_msr_crash_p1,
-        [42]             = test_hv_x64_msr_crash_p2,
-        [43]             = test_hv_x64_msr_crash_p3,
-        [44]             = test_hv_x64_msr_crash_p4,
-        [45]             = test_hv_x64_msr_crash_ctl,
+        [40]             = test_hv_x64_msr_tsc_frequency,
+        [41]             = test_hv_x64_msr_apic_frequency,
+        [42]             = test_hv_x64_msr_crash_p0,
+        [43]             = test_hv_x64_msr_crash_p1,
+        [44]             = test_hv_x64_msr_crash_p2,
+        [45]             = test_hv_x64_msr_crash_p3,
+        [46]             = test_hv_x64_msr_crash_p4,
+        [47]             = test_hv_x64_msr_crash_ctl,
 /* FIXME: Can't compile       [46]             = test_hv_x64_msr_crash_ctl_notify, */
-        [46]             = test_hv_x64_msr_crash_params
+        [48]             = test_hv_x64_msr_crash_params
 };
 
 static const int kvm_msr_read_max =

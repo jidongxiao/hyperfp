@@ -73,6 +73,9 @@ extern int test_msr_k8_tseg_mask();
 extern int test_hv_x64_msr_reset();
 extern int test_hv_x64_msr_vp_runtime();
 extern int test_hv_x64_msr_time_ref_count();
+extern int test_hv_x64_msr_tsc_frequency();
+extern int test_hv_x64_msr_apic_frequency();
+
 
 extern int test_hv_x64_msr_crash_p0();
 extern int test_hv_x64_msr_crash_p1();

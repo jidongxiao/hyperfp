@@ -149,6 +149,12 @@
 /* MSR used to read the per-partition time reference counter */
 #define HV_X64_MSR_TIME_REF_COUNT	0x40000020
 
+/* MSR used to retrieve the TSC frequency */
+#define HV_X64_MSR_TSC_FREQUENCY                0x40000022
+
+/* MSR used to retrieve the local APIC timer frequency */
+#define HV_X64_MSR_APIC_FREQUENCY               0x40000023
+
 /* Hyper-V guest crash notification MSR's */
 #define HV_X64_MSR_CRASH_P0                     0x40000100
 #define HV_X64_MSR_CRASH_P1                     0x40000101
