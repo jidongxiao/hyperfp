@@ -31,4 +31,14 @@ extern int test_msr_gs_base();
 extern int test_msr_kernel_gs_base();
 extern int test_msr_tsc_aux();
 
+extern int test_msr_ppin_ctl();
+extern int test_msr_ppin();
+
+extern int test_msr_ia32_perfctr0();
+extern int test_msr_ia32_perfctr1();
+extern int test_msr_fsb_freq();
+extern int test_msr_platform_info();
+extern int test_msr_platform_info_cpuid_fault_bit();
+extern int test_msr_platform_info_cpuid_fault();
+
 #endif /* readtest.h */

@@ -36,7 +36,15 @@ static int (*const kvm_msr_readable[])() = {
         [5]             = test_msr_fs_base,
         [6]             = test_msr_gs_base,
         [7]             = test_msr_kernel_gs_base,
-        [8]             = test_msr_tsc_aux
+        [8]             = test_msr_tsc_aux,
+        [9]             = test_msr_ppin_ctl,
+        [10]             = test_msr_ppin,
+        [11]             = test_msr_ia32_perfctr0,
+        [12]             = test_msr_ia32_perfctr1,
+        [13]             = test_msr_fsb_freq,
+        [14]             = test_msr_platform_info,
+        [15]             = test_msr_platform_info_cpuid_fault_bit,
+        [16]             = test_msr_platform_info_cpuid_fault,
 };
 
 static const int kvm_msr_read_max =

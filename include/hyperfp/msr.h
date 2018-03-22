@@ -22,6 +22,7 @@
 
 #include <inttypes.h>
 
+/* x86-64 specific MSRs */
 #define MSR_EFER		0xc0000080 /* extended feature register */
 #define MSR_STAR                0xc0000081 /* legacy mode SYSCALL target */
 #define MSR_LSTAR               0xc0000082 /* long mode SYSCALL target */
@@ -31,6 +32,44 @@
 #define MSR_GS_BASE             0xc0000101 /* 64bit GS base */
 #define MSR_KERNEL_GS_BASE      0xc0000102 /* SwapGS GS shadow */
 #define MSR_TSC_AUX             0xc0000103 /* Auxiliary TSC */
+
+/* Intel MSRs. Some also available on other CPUs */
+
+#define MSR_PPIN_CTL                    0x0000004e
+#define MSR_PPIN                        0x0000004f
+
+#define MSR_IA32_PERFCTR0               0x000000c1
+#define MSR_IA32_PERFCTR1               0x000000c2
+#define MSR_FSB_FREQ                    0x000000cd
+#define MSR_PLATFORM_INFO               0x000000ce
+#define MSR_PLATFORM_INFO_CPUID_FAULT_BIT       31
+#define MSR_PLATFORM_INFO_CPUID_FAULT           BIT_ULL(MSR_PLATFORM_INFO_CPUID_FAULT_BIT)
+
+#define MSR_PKG_CST_CONFIG_CONTROL      0x000000e2
+#define NHM_C3_AUTO_DEMOTE              (1UL << 25)
+#define NHM_C1_AUTO_DEMOTE              (1UL << 26)
+#define ATM_LNC_C6_AUTO_DEMOTE          (1UL << 25)
+#define SNB_C1_AUTO_UNDEMOTE            (1UL << 27)
+#define SNB_C3_AUTO_UNDEMOTE            (1UL << 28)
+
+#define MSR_MTRRcap                     0x000000fe
+#define MSR_IA32_BBL_CR_CTL             0x00000119
+#define MSR_IA32_BBL_CR_CTL3            0x0000011e
+
+#define MSR_IA32_SYSENTER_CS            0x00000174
+#define MSR_IA32_SYSENTER_ESP           0x00000175
+#define MSR_IA32_SYSENTER_EIP           0x00000176
+
+#define MSR_IA32_MCG_CAP                0x00000179
+#define MSR_IA32_MCG_STATUS             0x0000017a
+#define MSR_IA32_MCG_CTL                0x0000017b
+#define MSR_IA32_MCG_EXT_CTL            0x000004d0
+
+#define MSR_OFFCORE_RSP_0               0x000001a6
+#define MSR_OFFCORE_RSP_1               0x000001a7
+#define MSR_TURBO_RATIO_LIMIT           0x000001ad
+#define MSR_TURBO_RATIO_LIMIT1          0x000001ae
+#define MSR_TURBO_RATIO_LIMIT2          0x000001af
 
 #define MSR_IA32_MCG_STATUS             0x0000017a
 #define MSR_IA32_EBL_CR_POWERON         0x0000002a 
