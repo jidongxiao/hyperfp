@@ -139,8 +139,12 @@
 #define MSR_IA32_VMX_PROCBASED_CTLS2    0x0000048b	// Used for detecting nested ept.
 #define MSR_IA32_VMX_EPT_VPID_CAP       0x0000048c	// Used for detecting nested ept 2MB page.
 
+
 /* MSR used to reset the guest OS. */
 #define HV_X64_MSR_RESET                        0x40000003
+
+/* MSR used to provide vcpu runtime in 100ns units */
+#define HV_X64_MSR_VP_RUNTIME                   0x40000010
 
 /* MSR used to read the per-partition time reference counter */
 #define HV_X64_MSR_TIME_REF_COUNT	0x40000020

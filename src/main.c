@@ -73,7 +73,8 @@ static int (*const kvm_msr_readable[])() = {
         [36]             = test_msr_k8_tseg_mask,
 
         [37]             = test_hv_x64_msr_reset,
-        [38]             = test_hv_x64_msr_time_ref_count
+        [38]             = test_hv_x64_msr_vp_runtime,
+        [39]             = test_hv_x64_msr_time_ref_count
 };
 
 static const int kvm_msr_read_max =
