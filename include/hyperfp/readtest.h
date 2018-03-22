@@ -82,6 +82,11 @@ extern int test_msr_ia32_smm_monitor_ctl();
 extern int test_msr_ia32_smbase();
 
 extern int test_msr_ia32_vmx_basic();
+extern int test_msr_ia32_vmx_pinbased_ctls();
+extern int test_msr_ia32_vmx_procbased_ctls();
+extern int test_msr_ia32_vmx_exit_ctls();
+extern int test_msr_ia32_vmx_entry_ctls();
+extern int test_msr_ia32_vmx_misc();
 extern int test_msr_ia32_vmx_vmfunc();
 
 extern int test_hv_x64_msr_reset();
