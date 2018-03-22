@@ -46,7 +46,8 @@ static int (*const kvm_msr_readable[])() = {
         [15]             = test_msr_platform_info_cpuid_fault_bit,
         [16]             = test_msr_platform_info_cpuid_fault,
 
-        [17]             = test_hv_x64_msr_time_ref_count
+        [17]             = test_hv_x64_msr_reset,
+        [18]             = test_hv_x64_msr_time_ref_count
 };
 
 static const int kvm_msr_read_max =

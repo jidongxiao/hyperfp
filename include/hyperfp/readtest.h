@@ -41,6 +41,7 @@ extern int test_msr_platform_info();
 extern int test_msr_platform_info_cpuid_fault_bit();
 extern int test_msr_platform_info_cpuid_fault();
 
+extern int test_hv_x64_msr_reset();
 extern int test_hv_x64_msr_time_ref_count();
 
 #endif /* readtest.h */
