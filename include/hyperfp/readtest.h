@@ -87,6 +87,17 @@ extern int test_msr_ia32_vmx_procbased_ctls();
 extern int test_msr_ia32_vmx_exit_ctls();
 extern int test_msr_ia32_vmx_entry_ctls();
 extern int test_msr_ia32_vmx_misc();
+extern int test_msr_ia32_vmx_cr0_fixed0();
+extern int test_msr_ia32_vmx_cr0_fixed1();
+extern int test_msr_ia32_vmx_cr4_fixed0();
+extern int test_msr_ia32_vmx_cr4_fixed1();
+extern int test_msr_ia32_vmx_vmcs_enum();
+extern int test_msr_ia32_vmx_procbased_ctls2();
+extern int test_msr_ia32_vmx_ept_vpid_cap();
+extern int test_msr_ia32_vmx_true_pinbased_ctls();
+extern int test_msr_ia32_vmx_true_procbased_ctls();
+extern int test_msr_ia32_vmx_true_exit_ctls();
+extern int test_msr_ia32_vmx_true_entry_ctls();
 extern int test_msr_ia32_vmx_vmfunc();
 
 extern int test_hv_x64_msr_reset();
