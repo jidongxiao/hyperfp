@@ -54,6 +54,12 @@ extern int test_msr_ia32_mcg_status();
 extern int test_msr_ia32_mcg_ctl();
 extern int test_msr_ia32_mcg_ext_ctl();
 
+extern int test_msr_offcore_rsp_0();
+extern int test_msr_offcore_rsp_1();
+extern int test_msr_turbo_ratio_limit();
+extern int test_msr_turbo_ratio_limit1();
+extern int test_msr_turbo_ratio_limit2();
+
 extern int test_hv_x64_msr_reset();
 extern int test_hv_x64_msr_time_ref_count();
 

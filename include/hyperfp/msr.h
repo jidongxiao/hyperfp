@@ -71,9 +71,24 @@
 #define MSR_TURBO_RATIO_LIMIT1          0x000001ae
 #define MSR_TURBO_RATIO_LIMIT2          0x000001af
 
-#define MSR_IA32_MCG_STATUS             0x0000017a
+#define MSR_LBR_SELECT                  0x000001c8
+#define MSR_LBR_TOS                     0x000001c9
+#define MSR_LBR_NHM_FROM                0x00000680
+#define MSR_LBR_NHM_TO                  0x000006c0
+#define MSR_LBR_CORE_FROM               0x00000040
+#define MSR_LBR_CORE_TO                 0x00000060
+
+#define MSR_LBR_INFO_0                  0x00000dc0 /* ... 0xddf for _31 */
+
+
+
+#define MSR_IA32_PEBS_ENABLE            0x000003f1
+#define MSR_IA32_DS_AREA                0x00000600
+#define MSR_IA32_PERF_CAPABILITIES      0x00000345
+#define MSR_PEBS_LD_LAT_THRESHOLD       0x000003f6
+
+
 #define MSR_IA32_EBL_CR_POWERON         0x0000002a 
-#define MSR_IA32_MCG_CTL		0x0000017b
 #define MSR_IA32_PERF_STATUS		0x00000198
 #define MSR_IA32_MC0_MISC		0x00000403
 #define MSR_VM_HSAVE_PA			0xc0010117
