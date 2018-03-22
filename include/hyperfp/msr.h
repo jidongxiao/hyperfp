@@ -90,6 +90,9 @@
 #define MSR_K8_TSEG_ADDR                0xc0010112
 #define MSR_K8_TSEG_MASK                0xc0010113
 
+#define MSR_IA32_SMM_MONITOR_CTL        0x0000009b
+#define MSR_IA32_SMBASE                 0x0000009e
+
 #define MSR_IA32_EBL_CR_POWERON         0x0000002a 
 #define MSR_IA32_PERF_STATUS		0x00000198
 #define MSR_IA32_MC0_MISC		0x00000403
