@@ -1,7 +1,7 @@
 /*
  * msr.c: this file implements msr read and write operations.
  * We borrowed the code from msr-tools.
- * Copyright (c) 2014, Jidong Xiao (jidong.xiao@gmail.com).
+ * Copyright (c) 2018, Jidong Xiao (jidong.xiao@gmail.com).
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms and conditions of the GNU General Public License,

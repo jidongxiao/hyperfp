@@ -22,6 +22,13 @@
 #define __READTEST_H
 
 extern int test_msr_efer();
+extern int test_msr_star();
+extern int test_msr_lstar();
+extern int test_msr_cstar();
+extern int test_msr_syscall_mask();
 extern int test_msr_fs_base();
+extern int test_msr_gs_base();
+extern int test_msr_kernel_gs_base();
+extern int test_msr_tsc_aux();
 
 #endif /* readtest.h */

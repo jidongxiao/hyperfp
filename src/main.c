@@ -29,7 +29,14 @@
 
 static int (*const kvm_msr_readable[])() = {
         [0]             = test_msr_efer,
-        [1]             = test_msr_fs_base,
+        [1]             = test_msr_star,
+        [2]             = test_msr_lstar,
+        [3]             = test_msr_cstar,
+        [4]             = test_msr_syscall_mask,
+        [5]             = test_msr_fs_base,
+        [6]             = test_msr_gs_base,
+        [7]             = test_msr_kernel_gs_base,
+        [8]             = test_msr_tsc_aux
 };
 
 static const int kvm_msr_read_max =
