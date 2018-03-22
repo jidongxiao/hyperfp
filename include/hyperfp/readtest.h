@@ -76,6 +76,8 @@ extern int test_msr_k7_perfctr1();
 extern int test_msr_k7_perfctr2();
 extern int test_msr_k7_perfctr3();
 
+extern int test_msr_ia32_feature_control();
+
 extern int test_msr_ia32_smm_monitor_ctl();
 extern int test_msr_ia32_smbase();
 
