@@ -69,6 +69,9 @@ extern int test_msr_pebs_ld_lat_threshold();
 
 extern int test_msr_k8_tseg_addr();
 extern int test_msr_k8_tseg_mask();
+
+extern int test_msr_amd64_dc_cfg();
+
 extern int test_msr_k7_evntsel1();
 extern int test_msr_k7_evntsel2();
 extern int test_msr_k7_evntsel3();

@@ -95,6 +95,37 @@
 #define MSR_IA32_SMM_MONITOR_CTL        0x0000009b
 #define MSR_IA32_SMBASE                 0x0000009e
 
+/* AMD64 MSRs. Not complete. See the architecture manual for a more
+   complete list. */
+
+#define MSR_AMD64_PATCH_LEVEL           0x0000008b
+#define MSR_AMD64_TSC_RATIO             0xc0000104
+#define MSR_AMD64_NB_CFG                0xc001001f
+#define MSR_AMD64_PATCH_LOADER          0xc0010020
+#define MSR_AMD64_OSVW_ID_LENGTH        0xc0010140
+#define MSR_AMD64_OSVW_STATUS           0xc0010141
+#define MSR_AMD64_LS_CFG                0xc0011020
+#define MSR_AMD64_DC_CFG                0xc0011022
+#define MSR_AMD64_BU_CFG2               0xc001102a
+#define MSR_AMD64_IBSFETCHCTL           0xc0011030
+#define MSR_AMD64_IBSFETCHLINAD         0xc0011031
+#define MSR_AMD64_IBSFETCHPHYSAD        0xc0011032
+#define MSR_AMD64_IBSFETCH_REG_COUNT    3
+#define MSR_AMD64_IBSFETCH_REG_MASK     ((1UL<<MSR_AMD64_IBSFETCH_REG_COUNT)-1)
+#define MSR_AMD64_IBSOPCTL              0xc0011033
+#define MSR_AMD64_IBSOPRIP              0xc0011034
+#define MSR_AMD64_IBSOPDATA             0xc0011035
+#define MSR_AMD64_IBSOPDATA2            0xc0011036
+#define MSR_AMD64_IBSOPDATA3            0xc0011037
+#define MSR_AMD64_IBSDCLINAD            0xc0011038
+#define MSR_AMD64_IBSDCPHYSAD           0xc0011039
+#define MSR_AMD64_IBSOP_REG_COUNT       7
+#define MSR_AMD64_IBSOP_REG_MASK        ((1UL<<MSR_AMD64_IBSOP_REG_COUNT)-1)
+#define MSR_AMD64_IBSCTL                0xc001103a
+#define MSR_AMD64_IBSBRTARGET           0xc001103b
+#define MSR_AMD64_IBSOPDATA4            0xc001103d
+#define MSR_AMD64_IBS_REG_COUNT_MAX     8 /* includes MSR_AMD64_IBSBRTARGET */
+
 /* K7 MSRs */
 #define MSR_K7_EVNTSEL0                 0xc0010000
 #define MSR_K7_PERFCTR0                 0xc0010004
