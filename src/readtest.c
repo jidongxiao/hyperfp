@@ -42,30 +42,26 @@ int test_msr_efer()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_EFER,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_EFER is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_EFER is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_EFER is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_EFER is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1; // why would the code come to here??
 }
@@ -85,30 +81,26 @@ int test_msr_star()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_STAR,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_STAR is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_STAR is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_STAR is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_STAR is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1; // why would the code come to here??
 }
@@ -128,31 +120,26 @@ int test_msr_lstar()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_LSTAR,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: MSR_LSTAR is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_LSTAR is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_LSTAR is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_LSTAR is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_LSTAR is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1; // why would the code come to here??
 }
@@ -172,31 +159,26 @@ int test_msr_cstar()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_CSTAR,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: MSR_CSTAR is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_CSTAR is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_CSTAR is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_CSTAR is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_CSTAR is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1; // why would the code come to here??
 }
@@ -216,31 +198,26 @@ int test_msr_syscall_mask()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_SYSCALL_MASK,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: MSR_SYSCALL_MASK is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_SYSCALL_MASK is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_SYSCALL_MASK is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_SYSCALL_MASK is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_SYSCALL_MASK is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1; // why would the code come to here??
 }
@@ -260,31 +237,26 @@ int test_msr_fs_base()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_FS_BASE,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: MSR_FS_BASE is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_FS_BASE is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_FS_BASE is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_FS_BASE is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_FS_BASE is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1;
 }
@@ -304,31 +276,26 @@ int test_msr_gs_base()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_GS_BASE,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: MSR_GS_BASE is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_GS_BASE is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_GS_BASE is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_GS_BASE is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_GS_BASE is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1;
 }
@@ -348,31 +315,26 @@ int test_msr_kernel_gs_base()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_KERNEL_GS_BASE,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: MSR_KERNEL_GS_BASE is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_KERNEL_GS_BASE is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_KERNEL_GS_BASE is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_KERNEL_GS_BASE is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_KERNEL_GS_BASE is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1;
 }
@@ -392,31 +354,26 @@ int test_msr_tsc_aux()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_TSC_AUX,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: MSR_TSC_AUX is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_TSC_AUX is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_TSC_AUX is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_TSC_AUX is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_TSC_AUX is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1;
 }
@@ -436,31 +393,26 @@ int test_msr_ppin_ctl()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_PPIN_CTL,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: MSR_PPIN_CTL is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_PPIN_CTL is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_PPIN_CTL is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_PPIN_CTL is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_PPIN_CTL is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1;
 }
@@ -480,31 +432,26 @@ int test_msr_ppin()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_PPIN,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: MSR_PPIN is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_PPIN is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_PPIN is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_PPIN is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_PPIN is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1;
 }
@@ -524,31 +471,26 @@ int test_msr_ia32_perfctr0()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_IA32_PERFCTR0,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: MSR_IA32_PERFCTR0 is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_IA32_PERFCTR0 is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_IA32_PERFCTR0 is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_IA32_PERFCTR0 is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_IA32_PERFCTR0 is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1;
 }
@@ -568,31 +510,26 @@ int test_msr_ia32_perfctr1()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_IA32_PERFCTR1,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: MSR_IA32_PERFCTR1 is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_IA32_PERFCTR1 is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_IA32_PERFCTR1 is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_IA32_PERFCTR1 is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_IA32_PERFCTR1 is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1;
 }
@@ -612,31 +549,26 @@ int test_msr_fsb_freq()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_FSB_FREQ,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: MSR_FSB_FREQ is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_FSB_FREQ is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_FSB_FREQ is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_FSB_FREQ is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_FSB_FREQ is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1;
 }
@@ -656,31 +588,26 @@ int test_msr_platform_info()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_PLATFORM_INFO,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: MSR_PLATFORM_INFO is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_PLATFORM_INFO is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_PLATFORM_INFO is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_PLATFORM_INFO is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_PLATFORM_INFO is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1;
 }
@@ -700,31 +627,26 @@ int test_msr_platform_info_cpuid_fault_bit()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_PLATFORM_INFO_CPUID_FAULT_BIT,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: MSR_PLATFORM_INFO_CPUID_FAULT_BIT is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_PLATFORM_INFO_CPUID_FAULT_BIT is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_PLATFORM_INFO_CPUID_FAULT_BIT is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_PLATFORM_INFO_CPUID_FAULT_BIT is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_PLATFORM_INFO_CPUID_FAULT_BIT is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1;
 }
@@ -744,31 +666,26 @@ int test_msr_platform_info_cpuid_fault()
 
 	if(pid==0)	//child process
 	{
-		DPRINTF("DEBUG: Child: %s %d \n",__FUNCTION__,__LINE__);
 		rdmsr_on_cpu(MSR_PLATFORM_INFO_CPUID_FAULT,0);  // If the register isn't readable, than rdmsr_on_cpu would exit this process with a non-zero exit status value.
-		DPRINTF("DEBUG: Child: MSR_PLATFORM_INFO_CPUID_FAULT is readable!\n");
 		exit(0);
 	}else		//parent process
 	{
 		wait(&status);
+		DPRINTF("DEBUG: MSR_PLATFORM_INFO_CPUID_FAULT is");
 		if(WIFEXITED(status)) // Based on the glibc manual, this macro returns a nonzero value if the child process terminated normally with exit or __exit.
 		{
 			if(WEXITSTATUS(status)) // If WIFEXITED is true of status, this macro returns the low-order 8 bits of the exit status value from the child process
 			{
-				DPRINTF("DEBUG: Parent: MSR_PLATFORM_INFO_CPUID_FAULT is not readable!\n");
 				return 0;
 			}
 			else
 			{
-				DPRINTF("DEBUG: Parent: MSR_PLATFORM_INFO_CPUID_FAULT is readable!\n");
 				return 1;	//child process exit normally with exit code 0, which means the register is readable.
 			}
 		}else
 		{
-			DPRINTF("DEBUG: Parent: MSR_PLATFORM_INFO_CPUID_FAULT is not readable!\n");
 			return 0;	//child process exit abnormally, the register is not readable.
 		}
-//		DPRINTF("DEBUG: Parent: %s %d \n",__FUNCTION__,__LINE__);
 	}
 	return 1;
 }
