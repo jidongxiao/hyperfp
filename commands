@@ -1,0 +1,21 @@
+Supposed the read results are stored in temp1.txt with the format like this:
+
+d01
+23001000000000
+ffffffff816b4f50
+ffffffff816b7170
+43700
+0
+ffff88003fc00000
+0
+rdmsr:pread: Input/output error
+rdmsr:pread: Input/output error
+rdmsr:pread: Input/output error
+
+Then a command like this will replace all the lines without rdmsr with 1.
+
+sed '/rdmsr/!s/.*/1/' temp1.txt > temp2.txt
+
+And then this next command will replace all the rdmsr lines with 0.
+
+sed '/rdmsr/s/.*/0/' temp2.txt > temp3.txt
